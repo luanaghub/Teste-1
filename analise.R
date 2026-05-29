@@ -24,6 +24,8 @@
 
 library(tidyverse)
 library(gapminder)
+library(dplyr)
+
 
 
 # ============================================================
@@ -62,6 +64,17 @@ library(gapminder)
 #   Painel Git → marca checkbox em analise.R e grafico-1-brasil.png
 #   → Commit → mensagem: "Adiciona análise da expectativa de vida no Brasil"
 #   → Commit → Push
+gapminder |>
+  filter(country == 'Brazil') |>
+  ggplot(aes(x = year, y = lifeExp)) +
+  theme_light() +
+  geom_point() +
+  geom_line() +
+  labs(title = 'Evolução da Expectativa de Vida no Brasil',
+       subtitle = '1952 - 2007',
+       caption = 'Gapminder Dataset - The World Bank',
+       x = '', 
+       y = 'Expectativa de Vida')
 
 
 
